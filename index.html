@@ -59,19 +59,38 @@
                 </li>
                 <li><a href="contactus.html"><i class="fa fa-envelope-o"></i> Contact</a></li>
             </ul>
-            <form class="navbar-form navbar-right" role="search">
-                <div class="form-group">
-                    <input type="email" class="form-control" placeholder="Email">
-                    <input type="password" class="form-control" placeholder="Password">
-                    <label for="chk-remember" class="checkbox-inline remember">
-                        <input type="checkbox" id="chk-remember"> Remember Me
-                    </label>
-                </div>
-                <button type="submit" class="btn btn-info">Sign in</button>
-            </form>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a data-toggle="modal" data-target="#loginModal">
+                    <span class="glyphicon glyphicon-log-in"></span> Login
+                </a></li>
+            </ul>
         </div>
     </div>
 </nav>
+<div class="modal fade" id="loginModal" role="dialog">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">Login</h4>
+            </div>
+            <div class="modal-body">
+                <form class="form-inline" role="search">
+                    <div class="form-group">
+                        <input type="email" class="form-control" placeholder="Email">
+                        <input type="password" class="form-control" placeholder="Password">
+                        <label for="chk-remember" class="checkbox-inline remember">
+                            <input type="checkbox" id="chk-remember"> Remember Me
+                        </label>
+                    </div>
+                    <button type="submit" class="btn btn-info">Sign in</button>
+                    <button type="cancel" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                </form>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
 <header class="jumbotron">
 
     <!-- Main component for a primary marketing message or call to action -->
@@ -91,7 +110,8 @@
                 <img src="img/logo.png" alt="" class="img-responsive">
             </div>
             <div class="col-xs-12 col-sm-2">
-                <a href="#reservation" class="btn btn-warning btn-block btn-reserve">Reserve Table</a>
+                <a type="button" href="#reservation" class="btn btn-warning btn-block btn-reserve" data-toggle="tooltip"
+                   title="Or Call us at +853 12345678" data-placement="bottom">Reserve Table</a>
             </div>
         </div>
     </div>
@@ -225,13 +245,13 @@
 
                     <div class="col-sm-3">
                         <div class="has-feedback">
-                            <input type="text" class="form-control" placeholder="Date" />
+                            <input type="text" class="form-control" placeholder="Date"/>
                             <i class="glyphicon glyphicon-calendar form-control-feedback"></i>
                         </div>
                     </div>
                     <div class="col-sm-3">
                         <div class="has-feedback">
-                            <input type="text" class="form-control" placeholder="Time" />
+                            <input type="text" class="form-control" placeholder="Time"/>
                             <i class="glyphicon glyphicon-time form-control-feedback"></i>
                         </div>
                     </div>
@@ -244,8 +264,10 @@
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="alert alert-warning alert-dismissible" role="alert">
-                            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                            <strong>Warning!</strong> Please <a href="tel:85212345678" type="button">Call</a> us to reserve for more than six guests.
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
+                                    aria-hidden="true">&times;</span></button>
+                            <strong>Warning!</strong> Please <a href="tel:85212345678" type="button">Call</a> us to
+                            reserve for more than six guests.
                         </div>
                     </div>
                 </div>
@@ -301,6 +323,11 @@
 </footer>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('[data-toggle="tooltip"]').tooltip();
+    });
+</script>
 </body>
 
 </html>
